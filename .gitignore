@@ -1,3 +1,11 @@
-WV_NHD.gdb
+# Python
+__pycache__/
+
+# IDE
 .vscode
-venv
+
+# Caches
+.ruff_cache/
+
+# Local Data
+WV_NHD.gdb

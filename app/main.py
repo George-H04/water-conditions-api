@@ -2,9 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get('/health')
+
+@app.get("/health")
 def status():
-    return {
-        'message': "Water Conditions API",
-        'status': "Running"
-    }
+    return {"message": "Water Conditions API", "status": "Running"}
