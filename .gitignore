@@ -9,3 +9,6 @@ __pycache__/
 
 # Local Data
 WV_NHD.gdb
+
+# Environmental Data
+.env
