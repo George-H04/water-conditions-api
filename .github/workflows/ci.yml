@@ -32,3 +32,11 @@ jobs:
               run: |
                 pip install black
                 black --check app/
+
+    docker:
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker image
+        run: docker built -t water-conditions-api .
