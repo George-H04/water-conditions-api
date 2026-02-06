@@ -23,30 +23,30 @@ def get_conditions():
 
     # TODO: Think of a smarter approach, also think about how to include
     #       historical data, as that will also be vital for my purposes.
-    
+
     for item in r.json()["features"]:
         id = item["properties"]["parameter_code"]
         value = item["properties"]["value"]
 
         name = util.id_to_name(id)
         unit = util.id_to_unit(id)
-        
-        if '°C' in unit:
+
+        if "°C" in unit:
             value = util.c_to_f(value)
-            unit = '°F'
-        
+            unit = "°F"
+
         data_dict[name] = {"value": value, "unit": unit}
         print(data_dict[name])
 
     try:
         conditions = WaterConditions(
-            flowRate=data_dict['Flow rate'],
-            temperature=data_dict['Water temperature'],
-            waterLevel=data_dict['Water level'],
-            precipitation=data_dict['Precipitation']
+            flowRate=data_dict["Flow rate"],
+            temperature=data_dict["Water temperature"],
+            waterLevel=data_dict["Water level"],
+            precipitation=data_dict["Precipitation"],
         )
-        
+
     except ValidationError:
         return error("Conditions could not be computed")
-    
+
     return conditions
