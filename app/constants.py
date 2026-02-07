@@ -4,11 +4,11 @@ APIs return data with magic number identifiers, instead of descriptive names
 """
 
 USGS_IDS = {
-    "00010": "Water temperature",
-    "00011": "Water temperature",
-    "00045": "Precipitation",
-    "00060": "Flow rate",
-    "00065": "Water level",
+    "00010": "water temperature",
+    "00011": "water temperature",
+    "00045": "precipitation",
+    "00060": "flow rate",
+    "00065": "water level",
 }
 
 UNITS = {
