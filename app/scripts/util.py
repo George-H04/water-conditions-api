@@ -27,10 +27,10 @@ def find_locations(location: tuple[int, int], radius: int) -> list[str]:
 
     :param location: The user's current location, or an alternatively specified location
     :type location: tuple[int, int]
-    
+
     :param radius: The search radius
     :type radius: int
-    
+
     :return: Returns a list of strings, where each element is the monitoring location's ID
     :rtype: list[str]
     """
@@ -38,6 +38,7 @@ def find_locations(location: tuple[int, int], radius: int) -> list[str]:
 
     # TODO: Specifically, must add all monitoring locations to a database, so that the API queries the DATABASE, NOT external APIs.
     #       The goal is to reduce API calls as much as possible---if I can cache, I cache. If I can store in a databse, I do just that.
+
 
 def store() -> None:
     pass

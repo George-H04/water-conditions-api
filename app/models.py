@@ -6,14 +6,17 @@ class Condition(BaseModel):
     Model for the condition type. Used to individually validate each
     condition.
     """
+
     name: str
     value: float
     unit: str
-    
+
+
 class WaterConditions(BaseModel):
     """
     Model for water conditions
     """
+
     flowRate: Condition
     waterTemperature: Condition
     waterLevel: Condition

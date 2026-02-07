@@ -5,7 +5,6 @@ from requests import get
 from app.scripts import util
 from app.models import Condition, WaterConditions
 
-
 app = FastAPI()
 
 
@@ -25,32 +24,28 @@ def get_conditions():
     #       historical data, as that will also be vital for my purposes.
 
     data_dict = {}
-    
+
     for item in r.json()["features"]:
         id = item["properties"]["parameter_code"]
-        
+
         # Grab essential properties
         name = util.id_to_name(id)
         value = item["properties"]["value"]
         unit = util.id_to_unit(id)
-        
+
         try:
             # Add Condition type to dictionary
-            data_dict[name] = Condition(
-                name=name,
-                value=value,
-                unit=unit
-            )
+            data_dict[name] = Condition(name=name, value=value, unit=unit)
         except ValidationError:
             return error("Condition could not be computed")
-    
+
     try:
         # Build water conditions model
         conditions = WaterConditions(
-            flowRate=data_dict['flow rate'],
-            waterTemperature=data_dict['water temperature'],
-            waterLevel=data_dict['water level'],
-            precipitation=data_dict['precipitation']
+            flowRate=data_dict["flow rate"],
+            waterTemperature=data_dict["water temperature"],
+            waterLevel=data_dict["water level"],
+            precipitation=data_dict["precipitation"],
         )
 
     except ValidationError:
