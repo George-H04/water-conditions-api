@@ -18,7 +18,7 @@ def status():
 def get_conditions():
 
     r = get(
-        f"https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?f=json&lang=en-US&limit=10&skipGeometry=false&offset=0&monitoring_location_id=USGS-03070260"
+        "https://api.waterdata.usgs.gov/ogcapi/v0/collections/latest-continuous/items?f=json&lang=en-US&limit=10&skipGeometry=false&offset=0&monitoring_location_id=USGS-03070260"
     )
 
     # TODO: Think of a smarter approach, also think about how to include
